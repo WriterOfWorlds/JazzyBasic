@@ -1,0 +1,30 @@
+
+<html>
+<style>
+body{
+background-color:black;
+color:green;
+}
+</style>
+<body>
+<div id="a">
+</div>
+<script>
+let adiv = document.getElementById("a");
+adiv.innerHTML += "<p>Dual Boot</p>";
+adiv.innerHTML += "<p>Press Ctrl+Y to exit</p>";
+adiv.innerHTML += "<p>1 = Windows93 Boot</p>";
+adiv.innerHTML += "<p>2 = Banana Os</p>";
+document.addEventListener("keydown", function (event) {
+event.preventDefault();
+if(event.keyCode === 49) {
+location.href = "https://windows93.net";
+}else if(event.keyCode === 50){
+adiv.innerHTML += "Banana Os does not exist yet";
+}else if((event.keyCode === 89)&&(event.ctrlKey)){
+location.href = "boot.html";
+}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<audio src="startup.mp3"></audio>
+<script>
+  window.onload = function () {
+    var a = document.querySelector('audio');
+    setInterval(function () {
+      a.volume = parent.masterVolume;
+    });
+    a.play();
+  }
+</script>

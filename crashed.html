@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Uh oh, I crashed</title>
+    <style>
+    </style>
+  </head>
+  <body>
+    <div style="text-align: center; width: 20%; height: 20%; position: absolute; top: 35%; left: 40%;">
+      <p style="height: 80%;"><img src="errno.png" style="height: 100%;" /></p>
+      <p style="height: 20%;">JazzyOs is damaged</p>
+    </div>
+    <p class="e" style="position: absolute; left: 5px; bottom: 5px;">Press enter to reboot</p>
+    <script>
+      window.onkeydown = function (event) {
+        if(event.keyCode == 13) {
+          location.href = "index.html";
+        }
+      }
+    </script>
+    <audio autoplay src="oofsie.mp3"></audio>
+  </body>
+</html>

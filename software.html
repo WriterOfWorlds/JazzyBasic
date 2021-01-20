@@ -1,0 +1,15 @@
+
+
+
+
+<script>
+function blob() {
+var version = window.parent.version;
+var reg = "1.1.6";
+if(version === reg || version === null || version === undefined) {
+  location.reload();
+} else {
+  window.parent.alert_b("<p>Software Update is Avalible(Version "+reg+")</p><p><button onclick='location.reload();'>Install</button><button style='cursor:no-drop;'>Cancel</button></p>");
+}
+}
+</script>

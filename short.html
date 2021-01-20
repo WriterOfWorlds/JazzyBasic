@@ -1,0 +1,35 @@
+
+<html>
+<head>
+<style>
+.bob {
+  text-align:center;
+}
+
+.bob input {
+  width:100%;
+}
+
+
+
+
+</style>
+
+</head>
+<body>
+<div class="bob">
+<input id="img">
+<input id="uri">
+<button onclick="bob();">
+<script>
+function bob() {
+  var img = docuemnt.querySelector("#img").value;
+  var uri = docuemnt.querySelector("#uri").value;
+  window.parent.addapp(uri, img);
+  var bob1 = window.parent.ids - 1
+  closeoff("wind"+bob1);
+}
+</script>
+</div>
+</body>
+</html>

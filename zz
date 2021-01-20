@@ -1,0 +1,6 @@
+(loop) {
+  NOTNUMS.infinite
+} [
+  !sou HONK
+  !sou ZEW
+]

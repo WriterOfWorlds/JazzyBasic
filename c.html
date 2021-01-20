@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Files</title>
+<style>
+.filz {
+width:100%;
+border:1px solid black;
+background-color:white;
+color:black;
+font-size:16px;
+}
+.seld {
+background-color:#98ebff;
+}
+.context {
+  position:absolute;
+  width:80px;
+  height:auto;
+  border:none;
+  background-color:white;
+  color:black;
+  margin: 0;
+  padding: 0;
+  cursor:url("default.cur"),auto;
+  z-index:10000000000000000000000000000000000000000000000000000000000000000;
+}
+.context li{
+  background-color:white;
+  color:black;
+  width:100%;
+  height:20px;
+  font-size:14px;
+  border:solid lightgrey 1px;
+  text-decoration:none;
+  cursor:("default.cur"),auto;
+  overflow:hidden;
+}
+html {
+cursor:url("default.cur"),auto;
+} 
+</style>
+<script src="files.js"></script>
+<script src="delwindow.js"></script>
+</head>
+<body onload="setup();">
+<h3>c://</h3>
+<div id="filebox">
+</div>
+<ul class="context" id="cont" style="display:none;">
+<li style="color:grey;">Back</li>
+<li style="color:grey;">Forward</li>
+<li onclick="location.reload();">Reload</li>
+</ul>
+<ul class="context" id="cont2" style="display:none;">
+<li style="color:grey;">Back</li>
+<li style="color:grey;">Forward</li>
+<li onclick="location.reload();">Reload</li>
+<li onclick="del();">Delete</li>
+<li onclick="opf();">Open File</li>
+<li onclick="ReName();">Rename</li>
+</ul>
+<script src="files.js"></script>
+<script>
+
+
+
+  window.addEventListener('keydown', function (evt) {
+  //stuff to run
+  if(false) {
+    null;
+  } else {
+    parent.pressAKey(evt);
+  }
+});
+
+
+
+
+
+function openf(fn) {
+var l = fn.split('.').length - 1;
+var ea = fn.split('.')[l];
+var e = ea.toLowerCase();
+if(e === "txt" || e === "ejt") {
+window.parent.other_w('data:text/plain,'+localStorage.getItem(fn));
+} else if(e === "html") {
+window.parent.other_w('data:text/html,'+localStorage.getItem(fn));
+} else if(e === "mp4") {
+  window.parent.$video$("data:video/mp4;base64,"+localStorage.getItem(fn))
+} else if(e === "mp3") {
+  window.parent.$song$("data:audio/mpeg;base64,"+localStorage.getItem(fn))
+} else if(e === "spa") {
+var f = localStorage.getItem(fn);
+var rf = f.slice(1)
+var u = "https://scratch.mit.edu/projects/"+rf+"/embed/";
+window.parent.scra_w(u);
+} else if(e === "yt") {
+var f = localStorage.getItem(fn);
+var rf = f.slice(1)
+var u = "https://www.youtube.com/embed/"+rf+"";
+window.parent.other_w(u);
+} else if(e === "py") {
+window.parent.$error$("Python programs are currently unsupported on this os.");
+} else if(e === "js") {
+window.parent.eval(localStorage.getItem(fn));
+} else if(e === "zip") {
+window.parent.$error$("ZIP files are currently unsupported on this os.");
+} else if(e === "exe") {
+  window.parent.$error$("Your computer cannot run EXE files, which are made for Windows computers.");
+} else if(e === "png") {
+  window.parent.image("data:image/png;base64,"+localStorage.getItem(fn))
+} else {
+window.parent.$error$("This filetype is currently unsupported on this os.");
+}
+}
+window.oncontextmenu = context;
+window.tgt = null;
+function context(e) {
+e.preventDefault();
+var c = document.querySelector("#cont");
+var c2 = document.querySelector("#cont2");
+if(event.target.className === "filz") {
+uncontext();
+c2.style.top = event.clientY+"px";
+c2.style.left = event.clientX+"px";
+c2.style.display = 'block';
+tgt = event.target;
+} else if(event.target.parentNode.className === "filz") {
+uncontext();
+c2.style.top = event.clientY+"px";
+c2.style.left = event.clientX+"px";
+c2.style.display = 'block';
+tgt = event.target.parentNode;
+} else {
+uncontext2();
+c.style.top = event.clientY+"px";
+c.style.left = event.clientX+"px";
+c.style.display = 'block';
+}
+}
+function uncontext() {
+document.querySelector('#cont').style.display = 'none';
+}
+function uncontext2() {
+document.querySelector('#cont2').style.display = 'none';
+}
+window.onclick = function (e) {
+uncontext();
+uncontext2();
+}
+function setup() {
+document.querySelector('#filebox').innerHTML = c() || "";
+}
+function opf() {
+tgt.ondblclick();
+}
+function del() {
+localStorage.removeItem(tgt.id);
+closeoff(tgt.id);
+localStorage.setItem('f://c', document.querySelector('#filebox').innerHTML);
+}
+function ReName() {
+var rn = prompt("ReName file");
+var fl = localStorage.getItem(tgt.id);
+if(rn === null) {
+return;
+}
+tgt.innerHTML = "<p>"+rn+"</p>"
+localStorage.removeItem(tgt.id);
+tgt.id = "c://"+rn;
+localStorage.setItem(tgt.id, fl);
+localStorage.setItem('f://c', document.querySelector('#filebox').innerHTML);
+}
+</script>
+</body>
+</html>
+<div class="dmyi">
+</div>
+<script>
+  setInterval(function () {
+    var d = document.querySelector('.dmyi');
+    if(parent.dark) {
+      if(d.innerHTML !== '<link rel="stylesheet" href="darkca.css">') {
+        d.innerHTML = '<link rel="stylesheet" href="darkca.css" />';
+      }
+    } else {
+      d.innerHTML = "";
+    }
+  }, 500);
+</script>

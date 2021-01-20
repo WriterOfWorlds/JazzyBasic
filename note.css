@@ -1,0 +1,12 @@
+.notifier {
+  min-width:240px;
+  background-color:white;
+  color:black;
+  min-height:120px;
+}
+.nbox {
+  position:absolute;
+  z-index:10000000000000000000000000000000000000000000000000000000000000000;
+  right: 5px;
+  bottom: 75px;
+}

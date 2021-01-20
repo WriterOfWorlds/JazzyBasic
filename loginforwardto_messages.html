@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html manifest="manifest.appcache">
+<head>
+<link rel="shortcut icon" type="image" href="https://i.pinimg.com/originals/fb/15/f0/fb15f07243e81de329a17151300b5e99.png">
+<title>Jzy Services</title>
+<style>
+.x{
+  text-align:center;
+}
+</style>
+</head>
+<body>
+<h3 class="x">Welcome to Jzy Services!</h3>
+<p class="x">Jzy Services is a small storage service.</p>
+<p class="x"><input type="text" id="usr" placeholder="Username"></p>
+<p class="x"><input type="password" id="psw" placeholder="Password"></p>
+<p class="x"><button onclick="login()" id="myBtn">Login</button></p>
+<div id="out" class="x"></div>
+<script>
+    sessionStorage.clear();
+var users = {"Kekoa":"coolDoggie80","P455W0R8":"happyface"};
+var iou = {"Kekoa":"228201","P455W0R8":"556119"};
+
+function login(){
+  if(document.getElementById("usr").value.length === 0 || document.getElementById("psw").value.length === 0){
+    document.getElementById("out").innerHTML = "<p style='color:red;'>You Need To Enter A Username and Password!</p>";
+  }else if(users[document.getElementById("usr").value] === undefined){
+    document.getElementById("out").innerHTML = "<p style='color:red;'>The Username Does Not Match our Database</p>";
+  }else if(users[document.getElementById("usr").value] !== document.getElementById("psw").value){
+    document.getElementById("out").innerHTML = "<p style='color:red;'>The Password Does Not Match Your Username</p>";
+  }else{
+      sessionStorage.setItem("usr",document.getElementById("usr").value);
+    window.location.href = "msg.html"
+    
+  }
+}
+document.getElementById("psw").addEventListener("keyup", function(event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("myBtn").click();
+  }
+});
+
+
+</script>
+</body>
+

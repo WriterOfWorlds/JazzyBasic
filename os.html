@@ -1,0 +1,903 @@
+<html id="doc">
+<head>
+  <script src="shut.js"></script>
+  <script src="settings.js"></script>
+  <script src="crazy.js"></script>
+  <script src="batt.js"></script>
+  <link rel="stylesheet" href="buttons.css" />
+<meta name="theme-color" content="#0000ff" />
+<link rel="manifest" href="manifest-1.2.0.json" />
+<style>
+#doc{
+cursor:url("default.cur"),auto;
+}
+.navbar {
+  overflow: auto;
+  background-color: #333;  
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+}
+.navbar a {
+  display: inline-block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  float:left;
+  cursor:url("pointer.cur"),auto;
+}
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.navbar a.active {
+  background-color: blue;
+  color: white;
+}
+.navbar .icon {
+  display: none;
+}
+.navbar img{
+width:40px;
+height:40px;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: #2196F3;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.slider.round {
+  border-radius: 34px;
+  cursor:url("pointer.cur"),auto;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+.bg{
+  background-image:url('/bgnew.png');
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.desktop {
+  position:absolute;
+  z-level:1;
+}
+.window {
+  position: absolute;
+  z-index: 9;
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  width:600px;
+  height:600px;
+  resize: both;
+  overflow: hidden;
+}
+.headr {
+  padding: 10px;
+  cursor: url("default.cur"),auto;
+  background-color: white;
+  color: black;
+}
+.dapp {
+  cursor:url("default.cur"),auto;
+  width:40px;
+  height:40px;
+  position:absolute;
+}
+.alert {
+  position: absolute;
+  z-index: 9;
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  width:600px;
+  height:160px;
+  resize: both;
+  overflow: hidden;
+}
+.alert button {
+  cursor:url('default.cur');
+}
+#fash {
+  top:5px;
+  left:5px;
+}
+#avs {
+  top:5px;
+  left:55px;
+}
+#bnosswitch {
+  top:5px;
+  left:105px;
+}
+#pbutt {
+  top:5px;
+  left:155px;
+}
+#strbutt {
+  top:5px;
+  left:205px;
+}
+.mybox8 {
+  width:100%;
+  height:89%;
+  border: none;
+}
+#clock {
+  cursor:url("default.cur"),auto;
+}
+#jzy {
+  position:absolute;
+  width:100px;
+  height:144px;
+  border:none;
+  background-color:grey;
+  color:white;
+  bottom:70px;
+  margin: 0;
+  padding: 0;
+  cursor:url("default.cur");
+  overflow:auto;
+  font-size: 25px;
+}
+.desktop {
+  position:absolute;
+}
+#jzy li{
+  background-color:grey;
+  color:white;
+  width:100%;
+  height:20px;
+  font-size:14px;
+  border:solid lightgrey 1px;
+  text-decoration:none;
+  cursor:("default.cur");
+  font-size: 18px;
+}
+#newbar {
+  position:absolute;
+  width:100px;
+  height:144px;
+  border:none;
+  background-color:grey;
+  color:white;
+  bottom:70px;
+  left:110px;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  cursor:url("default.cur");
+  font-size: 25px;
+}
+#newbar li{
+  background-color:grey;
+  color:white;
+  width:100%;
+  height:20px;
+  font-size:14px;
+  border:solid lightgrey 1px;
+  text-decoration:none;
+  cursor:("default.cur");
+  overflow:hidden;
+  font-size: 18px;
+}
+#shortbar {
+  position:absolute;
+  width:100px;
+  height:144px;
+  border:none;
+  background-color:grey;
+  color:white;
+  bottom:70px;
+  left:220px;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  cursor:url("default.cur");
+  font-size: 25px;
+}
+#shortbar li{
+  background-color:grey;
+  color:white;
+  width:100%;
+  height:20px;
+  font-size:14px;
+  border:solid lightgrey 1px;
+  text-decoration:none;
+  cursor:("default.cur");
+  overflow:hidden;
+  font-size: 18px;
+}
+#prog {
+  position:absolute;
+  width:100px;
+  height:144px;
+  border:none;
+  background-color:grey;
+  color:white;
+  bottom:70px;
+  left:110px;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  cursor:url("default.cur");
+  font-size: 25px;
+}
+#prog li{
+  background-color:grey;
+  color:white;
+  width:100%;
+  height:20px;
+  font-size:14px;
+  border:solid lightgrey 1px;
+  text-decoration:none;
+  cursor:("default.cur");
+  overflow:hidden;
+  font-size: 18px;
+}
+.selectdapp {
+  background-color:#00ffff;
+}
+.context {
+  position:absolute;
+  width:100px;
+  height:auto;
+  border:none;
+  background-color:white;
+  color:black;
+  margin: 0;
+  padding: 0;
+  cursor:url("default.cur"),auto;
+  z-index:10000000000000000000000000000000000000000000000000000000000000000;
+  font-size: 18px;
+}
+.context li{
+  background-color:white;
+  color:black;
+  width:100%;
+  height:20px;
+  font-size:14px;
+  border:solid lightgrey 1px;
+  text-decoration:none;
+  cursor:("default.cur"),auto;
+  overflow:hidden;
+  z-index:10000000000000000000000000000000000000000000000000000000000000000;
+  font-size: 18px;
+}
+
+.volumebox {
+  position: absolute;
+  bottom: 75px;
+  left: 5px;
+  height: 20px;
+  width: 100px;
+  z-index: 9999999999999999999999999999999999999999999999999999999999999;
+  background-color: white;
+  color: black;
+  display: none;
+}
+.volumediv {
+  height: 10px;
+  width: 100%;
+  background-color: #d9d9d9;
+}
+.volslider {
+  background-color: blue;
+  height: 100%;
+}
+button{
+  cursor: url("default.cur"), auto;
+}
+</style>
+<link rel="stylesheet" href="note.css" />
+<div class="dmyi">
+</div>
+</head>
+<body class="bg" background-image="url('/bgnew2.png')">
+<script src="context.js"></script>
+<div class="navbar" id="myNavbar">
+  <a class="active togjzy" href="javascript:toggleJzy();cancelnew();noshorty();noprog();"><img src="icon.png"></a>
+  <p style="text-align:right;"><a id="clock" onmouseover="if(window.tts){new Audio('clock.mp3').play();}"></a></p>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+<div style="display:none;">
+<iframe src="startup.mp3"></iframe>
+<iframe src="software.html"></iframe>
+</div>
+<div class="desktop" id="desktop" onmouseover="if(window.tts){new Audio('dapp.mp3').play();}">
+<img class="dapp" src="fash.png" id="fash" ondblclick="fashp();" onclick='selectdapp(this)'> <img class="dapp" src="av.png" id="avs" ondblclick="anti_w();" onclick='selectdapp(this)'> <img class="dapp" src="banana.png" id="bnosswitch" ondblclick="bnos_w();" onclick='selectdapp(this)'> <img class="dapp" src="phone.png" id="pbutt" ondblclick="pb_w();" onclick='selectdapp(this)'> <img src="store.png" class="dapp" id="strbutt" ondblclick="str_w();" onclick='selectdapp(this)'>
+<div id="shorts">
+</div>
+</div>
+<ul id="jzy" style="display:none;">
+<li onclick="prog();cancelnew();noshorty();">Programs...</li>
+<li onclick="newbutt();noshorty();noprog();">New...</li>
+<li onclick="settings();toggleJzy();cancelnew();noshorty();noprog();">Settings</li>
+<li onclick="shutdown();toggleJzy();cancelnew();noshorty();noprog();">Shutdown</li>
+<li onclick="reboot();toggleJzy();cancelnew();noshorty();noprog();">Restart</li>
+<li><a href="javascript:clear();" style="color:white;text-decoration:none;cursor:url('default.cur'),auto;">Clear Data</a></li>
+<script>
+function newbutt() {
+var newbar = document.getElementById("newbar");
+if(newbar.style.display === "none") {
+  newbar.style.display = "block";
+} else {
+  newbar.style.display = "none";
+}
+}
+function cancelnew() {
+  document.querySelector("#newbar").style.display = "none";
+}
+</script>
+</ul>
+<ul id="newbar" style="display:none;">
+<li onclick="gdoc_w();toggleJzy();newbutt();noshorty();noprog();">gcontent</li>
+<li onclick="shorty();noprog();">shortcut</li>
+</ul>
+<ul id="shortbar" style="display:none;">
+<script>
+function shorty() {
+  var myelem = document.querySelector("#shortbar");
+  if(myelem.style.display === "none") {
+    myelem.style.display = "block";
+  } else {
+    myelem.style.display = "none";
+  }
+}
+function noshorty() {
+  document.querySelector("#shortbar").style.display = "none";
+}
+function prog() {
+  var myelem = document.querySelector("#prog");
+  if(myelem.style.display === "none") {
+    myelem.style.display = "block";
+  } else {
+    myelem.style.display = "none";
+  }
+}
+function noprog() {
+  document.querySelector("#prog").style.display = "none";
+}
+</script>
+<li><input style="width:100%;" placeholder="Image Url" id="img1"></li>
+<li><input style="width:100%;" placeholder="Frame Url" id="frm1"></li>
+<li onclick="makeapp();noshorty();toggleJzy();cancelnew();noprog();">Create Shor</li>
+<script>
+function makeapp() {
+  var elem1v = document.getElementById("img1").value;
+  var elem2v = document.getElementById("frm1").value;
+  addapp(elem2v, elem1v);
+}
+</script>
+</ul>
+<ul id="prog" style="display:none;">
+<li onclick="file_w();noprog();toggleJzy();">c</li>
+<li onclick="fashp();noprog();toggleJzy();">Adobe Flash</li>
+<li onclick="tts_w();toggleJzy();cancelnew();noshorty();noprog();">TTS</li>
+<li onclick="cam_w();toggleJzy();cancelnew();noshorty();noprog();">Camera</li>
+<li onclick="anti_w();toggleJzy();cancelnew();noshorty();noprog();">Antivirus</li>
+<li onclick="pb_w();toggleJzy();cancelnew();noshorty();noprog();">Contacts</li>
+<li onclick="bnos_w();toggleJzy();cancelnew();noshorty();noprog();">BNOS</li>
+<li onclick="str_w();toggleJzy();cancelnew();noshorty();noprog();">Store</li>
+<li onclick="movies();toggleJzy();cancelnew();noshorty();noprog();">Movies</li>
+<li onclick="crazy();toggleJzy();cancelnew();noshorty();noprog();">Crazy</li>
+<li onclick="appz('audio-rec.html', 'Voice Recorder');toggleJzy();cancelnew();noshorty();noprog();">Recorder</li>
+<li onclick="appz('audio-shop.html', 'Audio Shop');toggleJzy();cancelnew();noshorty();noprog();">Audio Shop</li>
+<li onclick="appz('text.html', 'JazzTypo');toggleJzy();cancelnew();noshorty();noprog();">JazzTypo</li>
+<li onclick="mine_w();toggleJzy();cancelnew();noshorty();noprog();" id="mineli">Minecraft</li>
+<li onclick="gecko_w();toggleJzy();cancelnew();noshorty();noprog();" id="geckli">Gecko</li>
+<li onclick="wiki_w();toggleJzy();cancelnew();noshorty();noprog();" id="wikili">Wikipedia</li>
+<li onclick="$chrome$();toggleJzy();cancelnew();noshorty();noprog();">JZYBrowse</li>
+<li onclick="$terminal$();toggleJzy();cancelnew();noshorty();noprog();">JazzyTerminal</li>
+<li onclick="$time$();toggleJzy();cancelnew();noshorty();noprog();">JazzyTime</li>
+</ul>
+<ul id="cont" class="context" style="display:none;">
+  <li onclick="custom_w('/jazzy/about/');">About Jazzy Os</li>
+</ul>
+<ul id="cont3" class="context" style="display:none;">
+  <li onclick="closeWnd();">Close</li>
+</ul>
+<ul id="cont2" class="context" style="display:none;">
+<li onclick="del();">Delete</li>
+<li onclick="opdapp();">Open</li>
+</ul>
+<div class="nbox">
+</div>
+<script src="windows.js"></script>
+<script src="cache.js"></script>
+<script>
+  window.dark = false;
+  setInterval(function () {
+    var d = document.querySelector('.dmyi');
+    if(dark) {
+      d.innerHTML = "<link rel='stylesheet' href='darkhs.css' />"
+    } else {
+      d.innerHTML = "";
+    }
+  });
+  window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem; 
+window.directoryEntry = window.directoryEntry || window.webkitDirectoryEntry;
+window.fileType = "no-fs";
+navigator.webkitPersistentStorage.requestQuota(1024*1024*20, function(p) {
+  if(p) {
+    window.requestFileSystem(PERSISTENT, 1024*1024*20, function (fs) {
+  window.fs = fs;
+  fs.root.getDirectory('c', {create:true}, function(directoryEntry){
+    console.log("yay! it worked!");
+    }, alert);
+}, alert);
+window.fileType = "persistent";
+  } else {
+    window.requestFileSystem(TEMPORARY, 1024*1024*10, function (fs) {
+  window.fs = fs;
+  fs.root.getDirectory('c', {create:true}, function(directoryEntry){
+    console.log("yay! it worked!");
+    }, alert);
+}, alert);
+window.fileType = "temporary";
+  }
+});
+
+if(!localStorage.getItem('strg')) {
+  localStorage.setItem('strg', '/c');
+}
+window.zlevel = 2;
+window.ids = 1;
+window.volume = 100;
+setInterval(function () {
+  window.masterVolume = window.volume / 100;
+});
+startup();
+desk();
+if(location.hash === "#boot") {
+  location.href = "index.html";
+}
+window.update = true;
+function updateTime() {
+var t1 = new Date();
+var hour = t1.getHours();
+var min = t1.getMinutes();
+var ampm = "am";
+var plus = ":";
+var time;
+if(hour > 11) {
+ampm = "pm";
+}
+if(hour > 12) {
+hour -= 12;
+}
+if(hour == 0) {
+  hour = 12;
+}
+if(min < 10){
+plus = ":0";
+}
+time = hour+plus+min+" "+ampm;
+document.getElementById("clock").innerHTML = time;
+}
+setInterval(updateTime, 1);
+function steady() {
+  setInterval(upd, 500);
+}
+var xmasMetal = new Audio("xmas1.mp3");
+xmasMetal.loop = true;
+function updateLevel(lv) {
+  if(lv == 5 || lv == 15) {
+    notify("<span style='color: red;'>Low Battery</span>", lv+"% Remaining");
+    new Audio("alert.mp3").play();
+  } else if(lv == 2) {
+    location.href = "lowbattery.html";
+  }
+}
+function dragElement(elmnt) {
+  try{
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    // if present, the header is where you move the DIV from:
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    elmnt.onmousedown = dragMouseDown;
+  }
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    document.onmousemove = elementDrag;
+  }
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+  function closeDragElement() {
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+  }
+  catch(e){
+    null;
+  }
+}
+function toggleJzy(){
+let jzybar = document.getElementById("jzy");
+if(jzybar.style.display === "none") {
+jzybar.style.display = "block";
+}else{
+jzybar.style.display = "none";
+}
+}
+function pressAKey(e){
+  if(!event.ctrlKey && !event.shiftKey && !event.altKey && !event.metaKey && event.keyCode === 120) {
+    volup();
+  } else if(!event.ctrlKey && !event.shiftKey && !event.altKey && !event.metaKey && event.keyCode === 121) {
+    voldown();
+
+ } else if(!event.ctrlKey && !event.shiftKey && !event.altKey && event.key === "Meta"){
+   event.preventDefault();
+   document.querySelector('.togjzy').click();
+
+} else if((event.keyCode === 46) && !event.ctrlKey && !event.altKey && !event.metaKey && !event.shiftKey) {
+  if(selected_node() !== null) {
+    event.preventDefault();
+    selected_node().id = "onetodel";
+    closeoff("onetodel");
+  }
+}else if((event.keyCode === 13) && !event.ctrlKey && !event.altKey && !event.metaKey) {
+  if(selected_node() !== null) {
+    event.preventDefault();
+    selected_node().ondblclick();
+  }
+}
+}
+function startup(){
+  window.addEventListener('keydown', pressAKey);
+window.version = "1.3.9";
+document.querySelector("#desktop").onclick = function () {
+  selectdapp(null);
+}
+dragElement(document.getElementById("fash"));
+dragElement(document.getElementById("avs"));
+dragElement(document.getElementById("bnosswitch"));
+dragElement(document.getElementById("pbutt"));
+dragElement(document.getElementById("strbutt"));
+}
+function addText(name,content) {
+localStorage.setItem(name, "data:text/plain,"+content);
+}
+function addImg(name, content) {
+localStorage.setItem(name, "data:image/png,"+content);
+}
+function addFile(name, data) {
+localStorage.setItem(name, data);
+}
+function delFile(name){
+localStorage.setItem(name, undefined);
+}
+function selected_node() {
+  if(document.querySelector(".selectdapp")) {
+    return document.querySelector(".selectdapp");
+  } else {
+    return null;
+  }
+}
+function focus(el) {
+  document.getElementById(el).style.zIndex = window.zlevel;
+  var myid = document.getElementById(el).id;
+  window.zlevel++;
+  document.getElementById(myid+"header").zIndex = window.zlevel;
+  window.zlevel++;
+}
+function focusQue(elem2) {
+  document.getElementById(elem2).onmousedown = function () {
+    focus(elem2);
+    if(!this.fcsd) {
+    startFocus(elem2);
+    }
+  };
+}
+function scan() {
+alert_b("No Virus Detected");
+}
+function desk() {
+  var myelem = document.querySelector("#desktop");
+  var dc = localStorage.getItem("desk");
+  if(dc !== null) {
+    myelem.innerHTML = dc;
+    draggable_again();
+  }
+}
+function upd() {
+  if(window.update){
+  var mystuff = document.querySelector("#desktop").innerHTML;
+  localStorage.setItem("desk", mystuff);
+  }
+}
+function convertTextToCustomString(txt) {
+  while(txt.includes("\n")) {
+    txt = txt.replace("\n", "\\n")
+  }
+  while(txt.includes("\\")) {
+    txt = txt.replace("\\", "\\\\")
+  }
+  while(txt.includes("\"")) {
+    txt = txt.replace("\"", "\\&#x27;");
+  }
+  while(txt.includes("\'")) {
+    txt = txt.replace("\'", "\\&#x27;");
+  }
+  while(txt.includes("&")) {
+    txt = txt.replace("&", "&#x26;");
+  }
+  while(txt.includes("&")) {
+    txt = txt.replace("&", "&#x26;");
+  }
+  while(txt.includes("`")) {
+    txt = txt.replace("`", "&#x60;");
+  }
+  while(txt.includes("<")) {
+    txt = txt.replace("<", "&#x3C;");
+  }
+  while(txt.includes(">")) {
+    txt = txt.replace(">", "&#x3E;");
+  }
+  return txt;
+}
+function convertTextToCustomHtml(txt) {
+  while(txt.includes("\n")) {
+    txt = txt.replace("\n", "\\n")
+  }
+  while(txt.includes("\\")) {
+    txt = txt.replace("\\", "\\\\")
+  }
+  while(txt.includes("\"")) {
+    txt = txt.replace("\"", "&#x27;");
+  }
+  while(txt.includes("\'")) {
+    txt = txt.replace("\'", "&#x27;");
+  }
+  while(txt.includes("&")) {
+    txt = txt.replace("&", "&#x26;");
+  }
+  while(txt.includes("&")) {
+    txt = txt.replace("&", "&#x26;");
+  }
+  while(txt.includes("`")) {
+    txt = txt.replace("`", "&#x60;");
+  }
+  while(txt.includes("<")) {
+    txt = txt.replace("<", "&#x3C;");
+  }
+  while(txt.includes(">")) {
+    txt = txt.replace(">", "&#x3E;");
+  }
+  return txt;
+}
+function addapp(url, icon) {
+  var myelem = document.querySelector("#shorts");
+  var img;
+  var dbl = "var url=&#x22;"+convertTextToCustomString(url)+"&#x22;;if(url === &#x22;/c/&#x22;) {file_w();} else if(url.startsWith(&#x22;/c/&#x22;)) {fs.root.getDirectory(&#x27;c&#x27;, {}, function (dr) {dr.getFile(url.slice(3), {}, function (f) {var currentFile = {item: f};if(f.isFile) {currentFile.type = &#x22;file&#x22;;} else {currentFile.type = &#x22;directory&#x22;;}if(currentFile.type === &#x22;file&#x22;) {var mimeArray = currentFile.item.name.split(&#x22;.&#x22;);var mime = mimeArray[mimeArray.length - 1].toLowerCase();var fileUri = readFile(currentFile.item);if(mime === &#x22;txt&#x22; || mime === &#x22;js&#x22; || mime === &#x22;css&#x22; || mime === &#x22;hex&#x22;) {parent.appz(fileUri, &#x22;Plain Text&#x22;);} else if(mime === &#x22;mp3&#x22; || mime === &#x22;wav&#x22; || mime === &#x22;m4a&#x22; || mime === &#x22;m3u&#x22;) {parent.uriAudio(fileUri);} else if(mime === &#x22;ogg&#x22; || mime === &#x22;m4v&#x22; || mime === &#x22;mov&#x22; || mime === &#x22;mp4&#x22; || mime === &#x22;webm&#x22; || mime === &#x22;avi&#x22;) {var thing = parent.uriVideo(fileUri);var num = Number(thing.id.slice(3));parent.owin(num);} else if(mime === &#x22;jpg&#x22; || mime === &#x22;png&#x22; || mime === &#x22;gif&#x22; || mime === &#x22;webp&#x22;) {parent.image(fileUri);} else if(mime === &#x22;pdf&#x22;) {parent.appz(fileUri, &#x22;Adobe Pdf&#x22;);} else if(mime === &#x22;html&#x22;) {parent.appz(fileUri, &#x22;HTML&#x22;);} else {parent.$oofsie$(&#x22;This file isn&#x27;t readable!&#x22;);}} else {parent.$oofsie$(&#x22;Folders currently are not supported&#x22;);}    }, function () { $oofsie$(&#x22;Something went wrong while trying to get your file.&#x22;);});}, function () { $oofsie$(&#x22;Something went wrong while trying to access the filesystem.&#x22;);});} else if(url === &#x22;/p/flash&#x22;) {fashp();} else if(url === &#x22;/p/crazy&#x22;) {crazy();} else if(url === &#x22;/p/bnos&#x22;) {bnos_w();} else if(url === &#x22;/p/typo&#x22;) {appz(&#x22;text.html&#x22;, &#x22;JazzTypo&#x22;);} else if(url === &#x22;/p/minecraft&#x22;) {if(localStorage.getItem(&#x27;minecraft&#x27;)) {mine_w();} else {$oofsie$(&#x22;This program doesn&#x27;t exsist!&#x22;);}} else if(url.startsWith(&#x22;/p/&#x22;)) {$oofsie$(&#x22;This program doesn&#x27;t exsist!&#x22;);} else {custom_w(url);}";
+  if(icon.startsWith("/c/")) {
+    fs.root.getFile(icon, {}, function (f) {
+      icon = readFile(f);
+    }, function () {
+      icon = "file.png";
+    });
+  }
+  img = "<img src='"+convertTextToCustomHtml(icon)+"' ondblclick='"+dbl+"' onload='dragElement(this);' class='dapp'>"
+  myelem.innerHTML += img;
+  localStorage.setItem("elcode", myelem.innerHTML);
+}
+function addmine() {
+  var myelem = document.querySelector("#shorts");
+  myelem.innerHTML += "<img src='mine.png' class='dapp' ondblclick='mine_w();' onload='dragElement(this);'  onclick='selectdapp(this)' id='Minecraft'>";
+  localStorage.setItem("elcode", myelem.innerHTML);
+}
+function addant() {
+  var myelem = document.querySelector("#shorts");
+  myelem.innerHTML += "<img src='av.png' class='dapp' ondblclick='anti_w();' onload='dragElement(this);'  onclick='selectdapp(this)' id='avs'>";
+  localStorage.setItem("elcode", myelem.innerHTML);
+}
+function addbnos() {
+  var myelem = document.querySelector("#shorts");
+  myelem.innerHTML += "<img src='banana.png' class='dapp' ondblclick='bnos_w();' onload='dragElement(this);'  onclick='selectdapp(this)' id='bnosswitch'>";
+  localStorage.setItem("elcode", myelem.innerHTML);
+}
+function addterm() {
+  var myelem = document.querySelector("#shorts");
+  myelem.innerHTML += "<img src='term.png' class='dapp' ondblclick='$terminal$();' onload='dragElement(this);'  onclick='selectdapp(this)' id='bnosswitch'>";
+  localStorage.setItem("elcode", myelem.innerHTML);
+}
+function addtime() {
+  var myelem = document.querySelector("#shorts");
+  myelem.innerHTML += "<img src='time.png' class='dapp' ondblclick='$time$();' onload='dragElement(this);'  onclick='selectdapp(this)'>";
+  localStorage.setItem("elcode", myelem.innerHTML);
+}
+function addfash() {
+  var myelem = document.querySelector("#shorts");
+  myelem.innerHTML += "<img src='fash.png' class='dapp' ondblclick=\"fashp();\" onload='dragElement(this);'  onclick='selectdapp(this)' id='fash'>";
+  localStorage.setItem("elcode", myelem.innerHTML);
+}
+function addpb() {
+  var myelem = document.querySelector("#shorts");
+  myelem.innerHTML += "<img src='phone.png' class='dapp' ondblclick='pb_w();' onload='dragElement(this);'  onclick='selectdapp(this)' id='pbutt'>";
+  localStorage.setItem("elcode", myelem.innerHTML);
+}
+function addstr() {
+  var myelem = document.querySelector("#shorts");
+  myelem.innerHTML += "<img src='store.png' class='dapp' ondblclick='str_w();' onload='dragElement(this);'  onclick='selectdapp(this)' id='strbutt'>";
+  localStorage.setItem("elcode", myelem.innerHTML);
+}
+function addgecko() {
+  var myelem = document.querySelector("#shorts");
+  myelem.innerHTML += "<img src='gecko.png' class='dapp' ondblclick='gecko_w();' onload='dragElement(this);'  onclick='selectdapp(this)'>";
+  localStorage.setItem("elcode", myelem.innerHTML);
+}
+function addwiki() {
+  var myelem = document.querySelector("#shorts");
+  myelem.innerHTML += "<img src='https://en.wikipedia.org/static/images/project-logos/enwiki.png' class='dapp' ondblclick='wiki_w();' onload='dragElement(this);'  onclick='selectdapp(this)'>";
+  localStorage.setItem("elcode", myelem.innerHTML);
+}
+function addtts() {
+  var myelem = document.querySelector("#shorts");
+  myelem.innerHTML += "<img src='ttsapp.png' class='dapp' ondblclick='tts_w();' onload='dragElement(this);'  onclick='selectdapp(this)'>";
+  localStorage.setItem("elcode", myelem.innerHTML);
+}
+function addcam() {
+  var myelem = document.querySelector("#shorts");
+  myelem.innerHTML += "<img src='cam.png' class='dapp' ondblclick='cam_w();' onload='dragElement(this);'  onclick='selectdapp(this)'>";
+  localStorage.setItem("elcode", myelem.innerHTML);
+}
+function draggable_again () {
+dragElement(document.getElementById("fash"));
+dragElement(document.getElementById("avs"));
+dragElement(document.getElementById("bnosswitch"));
+dragElement(document.getElementById("pbutt"));
+dragElement(document.getElementById("strbutt"));
+}
+function selectdapp(element) {
+  if(document.querySelector(".selectdapp")) {
+    document.querySelector(".selectdapp").classList.remove("selectdapp");
+  }
+  if(element !== null) {
+    element.classList.add("selectdapp");
+  }
+}
+setInterval(function () {
+  var mineli = document.querySelector("#mineli");
+  if(localStorage.getItem('minecraft')) {
+    mineli.style.display = "block";
+  } else {
+    mineli.style.display = "none";
+  }
+});
+setInterval(function () {
+  var mineli = document.querySelector("#geckli");
+  if(localStorage.getItem('gecko')) {
+    mineli.style.display = "block";
+  } else {
+    mineli.style.display = "none";
+  }
+});
+setInterval(function () {
+  var mineli = document.querySelector("#wikili");
+  if(localStorage.getItem('wiki')) {
+    mineli.style.display = "block";
+  } else {
+    mineli.style.display = "none";
+  }
+});
+setInterval(upd);
+
+function clearnotifs() {
+  var notifs = document.querySelectorAll('div.notifier');
+    for(var i = 0; i < notifs.length; i++) {
+        notifs[i].style.display = "none";
+    }
+}
+function actClearData() {
+  window.update = false;
+localStorage.clear();
+fs.root.getDirectory(
+  "c",
+  {},
+  function (dr) {
+    dr.removeRecursively(
+      function () {},
+      function () {}
+    );
+  },
+  function () {}
+);
+location.reload();
+}
+var dwBlob;
+function fetchFile(url, opt) {
+  if(window.fetch) {
+    // fetch certain resource
+    fetch(url, opt).then(function (res) {
+      res.blob().then(function (b) {
+        dwBlob = b;
+        var html = "<p>Save file as</p><p><input class='dwlInput' type='text' /></p><p><button onclick='downloadFetchedFile(document.querySelector(\".dwlInput\").value); closeoff(\"wind"+ids+"\"); closeoff(\"bar"+ids+"\");'>Save</button> <button onclick='closeoff(\"wind"+ids+"\"); closeoff(\"bar"+ids+"\");'>Cancel</button></p>";
+        alert_b(html);
+      });
+    });
+  } else {
+    $oofsie$("That action currently couldn't be performed.");
+  }
+}
+function downloadFetchedFile(fileName) {
+  if(dwBlob) {
+    fs.root.getDirectory('c', {}, function (dr) {
+      if(fileName.startsWith(".")) {
+        return $oofsie$("File names can't start with a dot!");
+      }
+      if(fileName == "") {
+        return $oofsie$("Filename can't be empty!");
+      }
+      createFileWErr(dr, fileName, dwBlob, function (er) {
+        if(er.name == "InvalidModificationError") {
+          $oofsie$("You already have a file with tha name!");
+        }
+      }, true);
+    }, function () {
+      $oofsie$("An error occured while accessing your filesystem.");
+    });
+  }
+}
+</script>
+<script src="file.js"></script>
+<script src="delwindow.js"></script>
+<script src="https://speechapi--awesomecrater.repl.co/apis/speak.js"></script>
+<script src="buttons.js"></script>
+<script src="notify.js"></script>
+<script src="flmain.js"></script>
+</body>
+</html>

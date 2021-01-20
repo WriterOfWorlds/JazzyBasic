@@ -1,0 +1,889 @@
+function tts_w() {
+  var node = document.createElement("div");
+  bar(ids, "Text to Speech");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='tts.html'>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  dragElement(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  window.ids++;
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  node.fcsd = true;
+  startFocus(node);
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+}
+window.addEventListener('click', function (evt) {
+  var node = evt.target;
+  var clickd = false;
+try {
+  if(node.className === "window" || node.className === "alert") {
+    clickd = true;
+  }
+}catch(e) {
+null;
+}
+try{
+  if(node.className === "headr" || node.parentNode.className === "window" || node.parentNode.className === "alert") {
+    clickd = true;
+    node = node.parentNode;
+
+  }
+}catch(e) {
+null;
+}
+try{
+  if(node.parentNode.className === "headr" || node.parentNode.parentNode.className === "window" || node.parentNode.parentNode.className === "alert") {
+    clickd = true;
+    node = node.parentNode.parentNode;
+ }
+}catch(e) {
+null;
+}
+try{
+  if(node.parentNode.parentNode.className === "headr" || node.parentNode.parentNode.parentNode.className === "window" || node.parentNode.parentNode.parentNode.className === "alert") {
+    clickd = true;
+    node = node.parentNode.parentNode.parentNode;
+}
+}catch(e) {
+null;
+}
+try{
+  if(node.parentNode.parentNode.parentNode.className === "headr" || node.parentNode.parentNode.parentNode.parentNode.className === "window" || node.parentNode.parentNode.parentNode.parentNode.className === "alert") {
+    clickd = true;
+node = node.parentNode.parentNode.parentNode.parentNode;
+  }
+}catch(e) {
+null;
+}
+  if(clickd) {
+    startFocus(node);
+  }
+});
+function startFocus(elem) {
+  var elms = document.querySelectorAll('.window');
+  var elms2 = document.querySelectorAll('.alert');
+  for(var i = 0; i < elms.length; i++) {
+    elms[i].fcsd = false;
+  }
+  for(var i = 0; i < elms2.length; i++) {
+    elms2[i].fcsd = false;
+  }
+  elem.fcsd = true;
+}
+function mine_w() {
+  var node = document.createElement("div");
+  bar(ids, "Minecraft");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='minecraft.html' allowfullscreen>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  window.ids++;
+  dragElement(node);
+  node.fcsd = true;
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  startFocus(node);
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+}
+function movies() {
+  var node = document.createElement("div");
+  bar(ids, "Movies");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='movie.html' allowfullscreen>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  window.ids++;
+  node.fcsd = true;
+  dragElement(node);
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  startFocus(node);
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+}
+function $newos$() {
+  var node = document.createElement("div");
+  bar(ids, "Help");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='https://jzyhelp.awesomecrater.repl.co/jzyos/update.php' allowfullscreen>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  startFocus(node);
+  window.ids++;
+  node.fcsd = true;
+  dragElement(node);
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+}
+function appz(uri, tit) {
+  var node = document.createElement("div");
+  bar(ids, tit);
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='"+uri+"' allowfullscreen>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  startFocus(node);
+  focus("wind"+window.ids)
+  window.ids++;
+  dragElement(node);
+  node.fcsd = true;
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+}
+function settings() {
+  var node = document.createElement("div");
+  bar(ids, "Settings");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='set.html' allowfullscreen>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  startFocus(node);
+  window.ids++;
+  dragElement(node);
+  node.fcsd = true;
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+}
+function fashp() {
+  var node = document.createElement("div");
+  bar(ids, "Adobe Flash Player");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='fash.html' allowfullscreen>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  startFocus(node);
+  window.ids++;
+  dragElement(node);
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  node.fcsd = true;
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+}
+function anti_w() {
+  var node = document.createElement("div");
+  bar(ids, "Anti-virus");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='antivirus.html'>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  dragElement(node);
+  focusQue("wind"+window.ids)
+  startFocus(node);
+  focus("wind"+window.ids)
+  window.ids++;
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+}
+function bnos_w() {
+  var node = document.createElement("div");
+  bar(ids, "Banana OS")
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='https://bananaos.ethana2.repl.co/' allowfullscreen>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  dragElement(node);
+  node.fcsd = true;
+  focusQue("wind"+window.ids);
+  focus("wind"+ids);
+  startFocus(node);
+  window.ids++;
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+}
+function file_w() {
+  var node = document.createElement("div");
+  bar(ids, "Storage")
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='c/' allowfullscreen>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  dragElement(node);
+  focusQue("wind"+window.ids);
+  focus("wind"+ids);
+  startFocus(node);
+  window.ids++;
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.fcsd = true;
+  node.isfullscreened = false;
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+}
+function gen_w() {
+  var node = document.createElement("div");
+  bar(ids, "File Generator")
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='gen.html' allowfullscreen>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  dragElement(node);
+  focusQue("wind"+window.ids);
+  startFocus(node);
+  focus("wind"+ids);
+  window.ids++;
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  node.fcsd = true;
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+}
+function pb_w() {
+  var node = document.createElement("div");
+  bar(ids, "Phone Book");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='pb.html'>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  startFocus(node);
+  window.ids++;
+  dragElement(node);
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  node.fcsd = true;
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+}
+function str_w() {
+  var node = document.createElement("div");
+  bar(ids, "Store");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='store.html'>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids);
+  focus("wind"+window.ids);
+  startFocus(node);
+  dragElement(node);
+  window.ids++;
+  node.fcsd = true;
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+}
+function gdoc_w() {
+  var node = document.createElement("div");
+  bar(ids, "Google Docs Sheets and Slides");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='https://docs.new'>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  dragElement(node);
+  focusQue("wind"+window.ids)
+  startFocus(node);
+  focus("wind"+window.ids)
+  window.ids++;
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.fcsd = true;
+  node.isfullscreened = false;
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+}
+function cam_w() {
+  var node = document.createElement("div");
+  bar(ids, "Camera");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='camera.html' allowfullscreen>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  startFocus(node);
+  window.ids++;
+  dragElement(node);
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  node.fcsd = true;
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+
+}
+function gecko_w(accesskey) {
+  
+  if(accesskey==="blingy123" || !localStorage.getItem('gecko')){
+  var node = document.createElement("div");
+  bar(ids, "Gecko Virus");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='gek.html'>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids);
+  focus("wind"+window.ids);
+  window.ids++;
+  dragElement(node);
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  node.fcsd = true;
+  startFocus(node);
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+  } else {
+    $error$("<p>Warning! This is a virus. Continue? <button onclick='gecko_w(\"blingy123\");'>Continue</button></p>");
+  }
+}
+function $txt$() {
+  var node = document.createElement("div");
+  bar(ids, "JZYtxt");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='/txt.html'>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  window.ids++;
+  dragElement(node);
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  node.fcsd = true;
+  startFocus(node);
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+
+}
+function $time$() {
+  var node = document.createElement("div");
+  bar(ids, "Clock");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='clock.html'>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  window.ids++;
+  dragElement(node);
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  node.fcsd = true;
+  startFocus(node);
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+
+}
+function vid_w(fn) {
+  var node = document.createElement("div");
+  bar(ids, "Video Player");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='https://videoplayer--awesomecrater.repl.co/?source="+fn+"' allowfullscreen allowwebkitfullscreen allowjazzyfullscreen>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  window.ids++;
+  dragElement(node);
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  node.fcsd = true;
+  startFocus(node);
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+}
+function $video$(fn) {
+  var node = document.createElement("div");
+  bar(ids, "Video Player");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='videopl.html' allowfullscreen allowwebkitfullscreen allowjazzyfullscreen>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  window.ids++;
+  dragElement(node);
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  node.fcsd = true;
+  startFocus(node);
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  var ifr = node.querySelector('iframe');
+  ifr.onload = function () {
+    this.contentWindow.postMessage({
+      html: "<source>",
+      src: fn
+    }, '*');
+  }
+  return node;
+}
+function $song$(fn) {
+  var node = document.createElement("div");
+  bar(ids, "Video Player");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='songpl.html' allowfullscreen allowwebkitfullscreen allowjazzyfullscreen>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  window.ids++;
+  dragElement(node);
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  node.fcsd = true;
+  startFocus(node);
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  var ifr = node.querySelector('iframe');
+  ifr.onload = function () {
+    this.contentWindow.postMessage({
+      html: "<source>",
+      src: fn
+    }, '*');
+  }
+  return node;
+}
+function wiki_w() {
+  var node = document.createElement("div");
+  bar(ids, "Wikipedia");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='wiki.html'>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  window.ids++;
+  dragElement(node);
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.fcsd = true;
+  node.isfullscreened = false;
+  startFocus(node);
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+
+}
+function $chrome$() {
+  var node = document.createElement("div");
+  bar(ids, "JZYBrowse");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='chrome.html'>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  window.ids++;
+  dragElement(node);
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  node.fcsd = true;
+  startFocus(node);
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+}
+function custom_w(wha) {
+  var node = document.createElement("div");
+  bar(ids, "JZYBrowse");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='brws.html#"+wha+"' allowfullscreen>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  window.ids++;
+  dragElement(node);
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  node.fcsd = true;
+  startFocus(node);
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+}
+function other_w(wha) {
+  var node = document.createElement("div");
+  bar(ids, "installed app");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='"+wha+"' allowfullscreen>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  window.ids++;
+  dragElement(node);
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  node.fcsd = true;
+  startFocus(node);
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+}
+function image(wha) {
+  var node = document.createElement("div");
+  bar(ids, "Images");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='images.html#"+wha+"' allowfullscreen>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  window.ids++;
+  startFocus(node);
+  dragElement(node);
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.fcsd = true;
+  node.isfullscreened = false;
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+}
+function scra_w(wha) {
+  var node = document.createElement("div");
+  bar(ids, "Scratch Programing");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='"+wha+"' allowfullscreen>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  window.ids++;
+  dragElement(node);
+  node.style.top = "10%";
+  node.style.left = "20%";
+  node.isfullscreened = false;
+  node.fcsd = true;
+  startFocus(node);
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+}
+function alert_b(wha) {
+  var node = document.createElement("div");
+  bar(ids, "alert box");
+  node.classList.add("alert");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='mwin("+window.ids+");'>⎯</span></div><div style='text-align:center;'>"+wha+"</div>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  window.ids++;
+  dragElement(node);
+  startFocus(node);
+  node.style.top = "30%";
+  node.fcsd = true;
+  node.style.left = "20%";
+
+  return node;
+}
+function alert_n(wha) {
+  var node = document.createElement("div");
+  bar(ids, "alert box");
+  node.classList.add("alert");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='mwin("+window.ids+");'>⎯</span></div><div style='text-align:center;overflow:auto;'>"+wha+"</div>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  window.ids++;
+  dragElement(node);
+  node.fcsd = true;
+  startFocus(node);
+  node.style.top = "30%";
+  node.style.left = "20%";
+  
+  return node;
+}
+function clear() {
+  var node = document.createElement("div");
+  bar(ids, "Delete User Info");
+  node.classList.add("alert");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='mwin("+window.ids+");'>⎯</span></div><div style='text-align:center;'><p>Delete All User Data? You can not undo this action.</p><p><button onclick='actClearData();'>Clear</button> <button onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>Cancel</button></p></div>"
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  window.ids++;
+  dragElement(node);
+  startFocus(node);
+  node.style.top = "30%";
+  node.style.left = "20%";
+  node.fcsd = true;
+  return node;
+}
+function setxy(command, x, y) {
+var mynode = eval(command);
+mynode.style.top = y;
+mynode.style.left = x;
+return mynode;
+}
+function $error$(wha) {
+  var node = document.createElement("div");
+  bar(ids, "alert box");
+  node.classList.add("alert");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='mwin("+window.ids+");'>⎯</span></div><div style='text-align:center;overflow:auto;'><img src='errno.png' style='width:40px;heigth:40px;'><br>"+wha+"</div>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  startFocus(node);
+  window.ids++;
+  dragElement(node);
+  var errTone = new Audio('alert.mp3');
+  errTone.volume = window.masterVolume;
+  errTone.play();
+  node.style.top = "30%";
+  node.style.left = "20%";
+  node.fcsd = true;
+  return node;
+}
+function $oofsie$(wha) {
+  var node = document.createElement("div");
+  bar(ids, "alert box");
+  node.classList.add("alert");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='mwin("+window.ids+");'>⎯</span></div><div style='text-align:center;overflow:auto;'><img src='oofsie.png' style='width:40px;heigth:40px;'><br>"+wha+"</div>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  window.ids++;
+  dragElement(node);
+  var errTone = new Audio('oofsie.mp3');
+  startFocus(node);
+  errTone.volume = window.masterVolume;
+  errTone.play();
+  node.style.top = "30%";
+  node.fcsd = true;
+  node.style.left = "20%";
+  return node;
+}
+function tada(wha) {
+  var node = document.createElement("div");
+  bar(ids, "alert box");
+  node.classList.add("alert");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='mwin("+window.ids+");'>⎯</span></div><div style='text-align:center;overflow:auto;'><img src='tada.png' style='width:40px;heigth:40px;'><br>"+wha+"</div>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  window.ids++;
+  dragElement(node);
+  var errTone = new Audio('tada.mp3');
+  startFocus(node);
+  errTone.volume = window.masterVolume;
+  errTone.play();
+  node.fcsd = true;
+  node.style.top = "30%";
+  node.style.left = "20%";
+  return node;
+}
+function inform(wha) {
+  var node = document.createElement("div");
+  bar(ids, "alert box");
+  node.classList.add("alert");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='mwin("+window.ids+");'>⎯</span></div><div style='text-align:center;overflow:auto;'><img src='hmm.png' style='width:40px;heigth:40px;'><br>"+wha+"</div>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  startFocus(node);
+  focus("wind"+window.ids)
+  window.ids++;
+  dragElement(node);
+  var errTone = new Audio('inform.mp3');
+  errTone.volume = window.masterVolume;
+  errTone.play();
+  node.style.top = "30%";
+  node.style.left = "20%";
+  node.fcsd = true;
+  return node;
+}
+function mwin(num) {
+  var thenode = document.getElementById("wind"+num);
+  if (!thenode.fcsd && !thenode.style.display === "none") {
+    thenode.fcsd = true;
+    focus(thenode.id);
+  } else if(thenode.style.display === "block") {
+    thenode.style.display = "none";
+  } else {
+    thenode.style.display = "block";
+    focus(thenode.id);
+    thenode.fcsd = true;
+  }
+}
+function owin(num) {
+  var thenode = document.getElementById('wind'+num);
+  if(thenode.isfullscreened) {
+    document.exitFullscreen();
+  } else {
+    thenode.requestFullscreen();
+  }
+}
+function bar(for_n, text) {
+  var thebar = document.createElement("a");
+  thebar.id = "bar"+for_n
+  thebar.innerHTML = text;
+  thebar.href = "javascript:mwin("+for_n+");";
+  document.querySelector("#myNavbar").appendChild(thebar);
+}
+function $terminal$() {
+  var node = document.createElement("div");
+  bar(ids, "Command Line");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='/terminal.html'>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  window.ids++;
+  dragElement(node);
+  node.style.top = "10%";
+  node.style.left = "20%";
+  startFocus(node);
+  node.isfullscreened = false;
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+
+}
+function uriAudio(href) {
+  var node = document.createElement("div");
+  bar(ids, "Audio Player");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='/audio-url.html?uri="+encodeURIComponent(href)+"'>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  window.ids++;
+  dragElement(node);
+  node.style.top = "10%";
+  node.style.left = "20%";
+  startFocus(node);
+  node.isfullscreened = false;
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+
+}
+function uriVideo(href) {
+  var node = document.createElement("div");
+  bar(ids, "Video Player");
+  node.classList.add("window");
+  node.id = "wind"+window.ids;
+  node.innerHTML = "<div class='headr' id='wind"+window.ids+"header'><span class='closer' onclick='closeoff("+'"wind'+window.ids+'"'+");closeoff("+'"bar'+ids+'");'+"'>╳</span><span onclick='owin("+window.ids+");'>▢</span><span onclick='mwin("+window.ids+");'>⎯</span></div><iframe class='mybox8' src='/video-url.html?uri="+encodeURIComponent(href)+"'>Your Browser does Not Support This App</iframe>";
+  document.body.appendChild(node);
+  focusQue("wind"+window.ids)
+  focus("wind"+window.ids)
+  window.ids++;
+  dragElement(node);
+  node.style.top = "10%";
+  node.style.left = "20%";
+  startFocus(node);
+  node.isfullscreened = false;
+  node.onfullscreenchange = function () {
+    this.isfullscreened = !this.isfullscreened;
+  }
+  return node;
+
+}
+function closeall() {
+  var i = window.ids;
+  while(i > 0) {
+    try {
+      closeoff("wind"+i)
+      closeoff("bar"+i)
+    } catch (e) {
+      null;
+    }
+    i--;
+  }
+}

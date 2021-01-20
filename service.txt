@@ -1,0 +1,182 @@
+var CACHE_NAME = 'cache-186';
+var urlsToCache = [
+  'index.html',
+  'antivirus.html',
+  'alert.mp3',
+  'av.png',
+  'banana.png',
+  'bg1.png',
+  'boot.html',
+  'brws.html',
+  'buttons.js',
+  'c.html',
+  'cache.js',
+  'cam.png',
+  'camera.html',
+  'camera.js',
+  'cc.png',
+  'chrome.html',
+  'clock.css',
+  'clock.html',
+  'clock.js',
+  'default.cur',
+  'delwindow.js',
+  'document.html',
+  'errno.png',
+  'fash.png',
+  'ff.png',
+  'file.js',
+  'file.png',
+  'files.js',
+  'fullfalse.png',
+  'fulltrue.png',
+  'gecko.html',
+  'gecko.png',
+  'gen.html',
+  'hmm.png',
+  'inform.mp3',
+  'icon.png',
+  'images.html',
+  'keypads.js',
+  'mine.png',
+  'mutefalse.png',
+  'mutetrue.png',
+  'note.css',
+  'notify.js',
+  'os.html',
+  'pause.png',
+  'pb.html',
+  'phone.png',
+  'photos.js',
+  'play.png',
+  'pointer.cur',
+  'refresh.png',
+  'replay.png',
+  'rw.png',
+  'secure.png',
+  'set.html',
+  'settings.js',
+  'songpl.html',
+  'startup.html',
+  'startup.mp3',
+  'store.html',
+  'store.png',
+  't.js',
+  'term.png',
+  'terminal.html',
+  'text.cur',
+  'time.png',
+  'trans.png',
+  'tts.html',
+  'ttsapp.png',
+  'txt.html',
+  'txtupload.html',
+  'video.js',
+  'videopl.html',
+  'wait.cur',
+  'webs.js',
+  'windows.js',
+  'minecraft.html',
+  'wiki.html',
+  'gek.html',
+  'updater.html',
+  'v1.3.9',
+  'no.adobe',
+  'jazzy/about',
+  'jazzy/home',
+  'jazzy/offline',
+  'crazy.js',
+  'crazy.mp3',
+  'tada.png',
+  'tada.mp3',
+  'shut.js',
+  'shut.html',
+  'fash.html',
+  'fash.js',
+  'fash-color.html',
+  'fash-snake.html',
+  'snake.wav',
+  'gameover.mp3',
+  'oofsie.mp3',
+  'oofsie.png',
+  'darkhs.css',
+  'darkca.css',
+  'buttons.css',
+  'lowbattery.html',
+  'lb.js',
+  'batt.js',
+  'xmas1.mp3',
+  'set-cmusic.html',
+  'flmbd.js',
+  '/c/',
+  'audio-url.html',
+  'video-url.html',
+  'audio-rec.html',
+  'WebAudioRecorder.min.js',
+  'WebAudioRecorderOgg.min.js',
+  'WebAudioRecorderWav.min.js',
+  'Mp3LameEncoder.min.js.mem',
+  'OggVorbisEncoder.min.js.mem',
+  'text.html',
+  'flmain.js',
+];
+
+self.addEventListener('install', function(event) {
+  // Perform install steps
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        console.log('Opened cache');
+        return cache.addAll(urlsToCache);
+      })
+  );
+});
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        // Cache hit - return response
+        if (response) {
+          return response;
+        }
+
+        return fetch(event.request).then(
+          function(response) {
+            // Check if we received a valid response
+            if(!response || response.status !== 200 || response.type !== 'basic') {
+              return response;
+            }
+
+            // IMPORTANT: Clone the response. A response is a stream
+            // and because we want the browser to consume the response
+            // as well as the cache consuming the response, we need
+            // to clone it so we have two streams.
+            var responseToCache = response.clone();
+
+            caches.open(CACHE_NAME)
+              .then(function(cache) {
+                cache.put(event.request, responseToCache);
+              });
+
+            return response;
+          }
+        );
+      })
+    );
+});
+self.addEventListener('activate', function(event) {
+  
+  var cacheWhitelist = ['cache-186']
+;
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});

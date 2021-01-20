@@ -1,0 +1,102 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Docs Maker</title>
+<style>
+.logo {
+  text-align:center;
+}
+
+.logo img{
+  width:140px;
+  height:60px;;
+}
+
+
+
+
+
+</style>
+</head>
+<body>
+<h1 class="logo">Jazzy OS Docs</h1>
+<p>No Documents to Create</p>
+<p>To Create a Document, use Google Docs Sheets and Slides</p>
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 class="logo"><img src="https://tettra.com/wp-content/uploads/2019/03/integrations-google-docs-logo.png"></h1>
+<h2>Google Docs</h2>
+<p>Create New <button onclick="location.href = 'https://docs.new';">new google doc</button></p>
+<p>Or Select Document</p>
+<p><input id="blab1" style="width:100%;"></p>
+<p><button onclick="rundoc();">IMPORT</button></p>
+<h2>Google Sheets</h2>
+<p>Create New <button onclick="location.href = 'https://sheets.new';">new google sheet</button></p>
+<p>Or Select Spreadsheet</p>
+<p><input id="blab2" style="width:100%;"></p>
+<p><button onclick="runsheet();">IMPORT</button></p>
+<h2>Google Slides</h2>
+<p>Create New <button onclick="location.href = 'https://slides.new';">new google slide</button></p>
+<p>Or Select Presentation</p>
+<p><input id="blab3" style="width:100%;"></p>
+<p><button onclick="runslide();">IMPORT</button></p>
+<h2>Google Draw</h2>
+<p>Create New <button onclick="location.href = 'https://drawings.google.com';">new google drawing</button></p>
+<p>Or Select Presentation</p>
+<p><input id="blab4" style="width:100%;"></p>
+<p><button onclick="draw();">IMPORT</button></p>
+
+
+
+
+
+
+
+
+
+
+<script>
+function rundoc() {
+  var doccode = document.querySelector("#blab1").value;
+  location.href = "https://docs.google.com/document/d/"+doccode+"/edit";
+}
+function runsheet() {
+  var doccode = document.querySelector("#blab2").value;
+  location.href = "https://docs.google.com/spreadsheet/d/"+doccode+"/edit";
+}
+function runslide() {
+  var doccode = document.querySelector("#blab3").value;
+  location.href = "https://docs.google.com/presentation/d/"+doccode+"/edit";
+}
+function draw() {
+  var doccode = document.querySelector("#blab4").value;
+  location.href = "https://docs.google.com/drawing/d/"+doccode+"/edit";
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

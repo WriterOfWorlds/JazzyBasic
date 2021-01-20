@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <title>c - Jazzy OS Filesystem</title>
+    <span class="dmyi"></span>
+    <style>
+      html {
+        cursor: url("../default.cur"), auto;
+        user-select: none;
+      }
+      body {
+        cursor: url("../default.cur"), auto;
+      }
+      .file {
+        cursor: url("../pointer.cur"), auto;
+      }
+      .context {
+  position:absolute;
+  width:80px;
+  height:auto;
+  border:none;
+  background-color:white;
+  color:black;
+  margin: 0;
+  padding: 0;
+  cursor:url("../default.cur"),auto;
+  z-index:10000000000000000000000000000000000000000000000000000000000000000;
+}
+.context li{
+  background-color:white;
+  color:black;
+  width:100%;
+  height:20px;
+  font-size:14px;
+  border:solid lightgrey 1px;
+  text-decoration:none;
+  cursor:("../default.cur"),auto;
+  overflow:hidden;
+}
+    </style>
+  </head>
+  <body>
+    <p>c <!--<input class="ful" type="file" onchange="dld(this);" />--></p>
+    <div class="fsflz">
+      Loading files...
+    </div>
+    <script src="../flmbd.js"></script>
+    <script>
+      window.oncontextmenu = context;
+      function context(e) {
+e.preventDefault();
+var c = document.querySelector("#cont");
+c.style.top = event.clientY+"px";
+c.style.left = event.clientX+"px";
+c.style.display = 'block';
+}
+function uncontext() {
+document.querySelector('#cont').style.display = 'none';
+}
+window.addEventListener('click', function (evt) {
+  uncontext();
+});
+      function dld(el) {
+        $oofsie$("Unable to upload!");
+      }
+      function scanFs() {
+            var filez = scanDirectory("c");
+            var l = filez.length;
+            l = filez.length;
+            l = filez.length;
+            l = filez.length;
+            var div = document.querySelector('.fsflz');
+            setTimeout(function () {
+              div.innerHTML = "";
+            for(var i = 0; i < filez.length; i++) {
+              var p = document.createElement('p');
+              p.className = "file";
+              p.innerText = filez[i].item.name;
+              var span = document.createElement('span');
+              span.innerText = "delete";
+              span.style.color = "red";
+              eval("span.onclick = function () {\nfilez["+i+"].item.remove(function () {null;}, function () {\nparent.$oofsie$(\"An error when trying to delete this file.\");scanFs();\n});\n}")
+              p.innerText += " ";
+              p.appendChild(span);
+              eval("p.ondblclick = function (evt) {\nvar currentFile = filez["+i+"];\nif(currentFile.type === \"file\") {\nevt.preventDefault();\nvar mimeArray = currentFile.item.name.split(\".\");\nvar mime = mimeArray[mimeArray.length - 1].toLowerCase();\nvar fileUri = readFile(currentFile.item);\nif(mime === \"txt\" || mime === \"js\" || mime === \"css\" || mime === \"hex\") {\nparent.appz(fileUri, \"Plain Text\");\n} else if(mime === \"mp3\" || mime === \"wav\" || mime === \"m4a\" || mime === \"m3u\") {\nparent.uriAudio(fileUri);\n} else if(mime === \"ogg\" || mime === \"m4v\" || mime === \"mov\" || mime === \"mp4\" || mime === \"webm\" || mime === \"avi\") {\nvar thing = parent.uriVideo(fileUri);\nvar num = Number(thing.id.slice(3));\nparent.owin(num);\n} else if(mime === \"jpg\" || mime === \"png\" || mime === \"gif\" || mime === \"webp\") {\nparent.image(fileUri);} else if(mime === \"pdf\") {\nparent.appz(fileUri, \"Adobe Pdf\");\n} else if(mime === \"html\") {\nparent.appz(fileUri, \"HTML\");\n} else {\nparent.$oofsie$(\"This file isn't readable!\");\n}} else {\nparent.$oofsie$(\"Folders currently are not supported\");\n}\n}");
+              div.appendChild(p);
+            }
+            }, 1000);
+      }
+      window.onload = function () {
+        if(parent.fs) {
+          scanFs();
+          setInterval(scanFs, 5000);
+        }
+      }
+    </script>
+  </body>
+  <ul class="context" id="cont" style="display:none;">
+<li style="color:grey;">Back</li>
+<li style="color:grey;">Forward</li>
+<li onclick="location.reload();">Reload</li>
+</ul>
+</html>
+<script>
+setInterval(function () {
+    var d = document.querySelector('.dmyi');
+    if(parent.dark) {
+      if(d.innerHTML !== '<link rel="stylesheet" href="darkca.css">') {
+        d.innerHTML = '<link rel="stylesheet" href="darkca.css" />';
+      }
+    } else {
+      d.innerHTML = "";
+    }
+  }, 60000);
+  </script>

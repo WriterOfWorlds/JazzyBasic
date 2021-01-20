@@ -1,0 +1,55 @@
+<html id="doc">
+<style>
+#doc{
+cursor:url("wait.cur"),auto;
+color:white;
+background-color:black;
+}
+</style>
+<head>
+<meta name="theme-color" content="#000000" />
+</head>
+Booting up...
+<script>
+  function rewrite(url, meth) {
+    var xml = new XMLHttpRequest();
+    xml.onreadystatechange = function () {
+        if(xml.readyState == 4 && xml.status == 200) {
+            document.write(xml.responseText);
+        }
+    }
+    xml.open(meth, url);
+    xml.send();
+}
+if(location.protocol !== "https:") location.protocol = "https:";
+function plat() {
+document.body.innerHTML += "<br>Browser Running on platform "+navigator.platform;
+}
+setTimeout(plat, 2000);
+function lang() {
+if(navigator.language === "en-US") {
+document.body.innerHTML += "<br>Your Browser is in English";
+} else if(navigator.language === "en-UK") {
+document.body.innerHTML += "<br>Your Browser is in UK English";
+} else {
+document.body.innerHTML += "<br>Your Browser is NOT in English";
+}
+}
+setTimeout(lang, 4000);
+function gecko () {
+if(navigator.product === "Gecko") {
+document.body.innerHTML += "<br>Gecko Bling Bling has a Car";
+} else {
+document.body.innerHTML += "<br>Nice Browser!";
+}
+}
+setTimeout(gecko, 6000);
+function redir() {
+rewrite("os.html", 'GET');
+}
+setTimeout(redir, 8000);
+window.onerror = function (e){alert(e.message);}
+
+</script>
+<script src="cache.js"></script>
+</html>

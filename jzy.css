@@ -1,0 +1,18 @@
+a {
+  cursor:url("https://jazzyos--awesomecrater.repl.co/pointer.cur"),auto;
+}
+html {
+  cursor:url("https://jazzyos--awesomecrater.repl.co/default.cur"),auto;
+}
+button {
+  cursor:url("https://jazzyos--awesomecrater.repl.co/default.cur"),auto;
+}
+input {
+  cursor:url("https://jazzyos--awesomecrater.repl.co/text.cur"),auto;
+}
+textarea {
+  cursor:url("https://jazzyos--awesomecrater.repl.co/text.cur"),auto;
+}
+[contenteditable="true"] {
+  cursor:url("https://jazzyos--awesomecrater.repl.co/text.cur"),auto;
+}

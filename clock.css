@@ -1,0 +1,19 @@
+.clockarea {
+  position: absolute;
+  top: 20%;
+  left: 35%;  
+}
+.ampm {
+  text-decoration: none;
+  font-size: 40px;
+}
+.centered {
+  text-align: center;
+}
+.timebox {
+  font-size: 130px;
+}
+body {
+  background-color: black;
+  color: white;
+}
